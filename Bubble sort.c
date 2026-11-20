@@ -1,36 +1,38 @@
-// bubble sort 
+//bubble sort
 
 #include <stdio.h>
 
 int main()
 {
-    int a[100], n, i, j, min, temp;
+    int a[100], n, i, j, temp;
 
-    printf("Enter number of elements: ");
+    printf("Enter the no of the element for the array: ");
     scanf("%d", &n);
 
-    printf("Enter elements: ");
+    printf("Enter the number of the element in the array: ");
     for (i = 0; i < n; i++)
+    {
         scanf("%d", &a[i]);
+    }
 
     for (i = 0; i < n - 1; i++)
     {
-        min = i;
-
-        for (j = i + 1; j < n; j++)
+        for (j = 0; j < n - 1 - i; j++)
         {
-            if (a[j] < a[min])
-                min = j;
+            if (a[j] > a[j + 1])
+            {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
         }
-
-        temp = a[i];
-        a[i] = a[min];
-        a[min] = temp;
     }
 
-    printf("Sorted array: ");
+    printf("The sorted array is: ");
     for (i = 0; i < n; i++)
+    {
         printf("%d ", a[i]);
+    }
 
     return 0;
 }
